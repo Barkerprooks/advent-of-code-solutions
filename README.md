@@ -3,4 +3,5 @@ Jon Parker Brooks
 ## Days Complete
 [x] day 1  
 [x] day 2  
-[ ] day 3  
+[X] day 3  
+[X] day 4  
