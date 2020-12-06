@@ -6,5 +6,5 @@ Jon Parker Brooks
 [x] day 2 - Python
 [X] day 3 - C
 [X] day 4 - Rust
-[\] day 5 - Ruby
+[X] day 5 - Ruby
 ```

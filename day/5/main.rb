@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-highest = 0
+seats = {}
+highest, id = 0, 0
 
 File.read("input.txt").split.each { |entry|
   
@@ -28,6 +29,24 @@ File.read("input.txt").split.each { |entry|
   if id > highest
     highest = id
   end
+
+  if not seats[row]
+    seats[row] = []
+  end
+
+  seats[row].append(col)
 }
 
-puts "highest id: %d" % [highest]
+puts "highest id: #{highest}"
+
+seats.each { |key, val|
+  filled = [0,1,2,3,4,5,6,7]
+  if key != 8 and key != 120
+    if val.length < 8
+      missing = (filled + val - (filled & val))[0]
+      id = key * 8 + missing
+    end
+  end
+}
+
+puts "my seat id: #{id}"
