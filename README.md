@@ -8,4 +8,4 @@ Each day will be in a different language
 [X] day 4 - Rust
 [X] day 5 - Ruby
 ```
-As you can see, Rust appears to be the most ~~verbose~~ safe language
+So far Rust appears to be the most ~~verbose~~ safe language
