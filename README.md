@@ -7,4 +7,5 @@ Each day will be in a different language
 [X] day 3 - C
 [X] day 4 - Rust
 [X] day 5 - Ruby
+[X] day 6 - C++
 ```
