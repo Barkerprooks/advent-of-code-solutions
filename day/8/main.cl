@@ -1,0 +1,37 @@
+(defun import-src (fd)
+  (with-open-file (s fd)
+	(loop for l = (read-line s nil)
+		  while l
+		  collect l)))
+
+(defun ins-pair (src pc)
+  (setf s (nth pc src))
+  (setf k (position #\Space s))
+  (cons (subseq s 0 k) (parse-integer (subseq s (+ k 1)))))
+
+(defun exec-ins (src pc)
+  (setf pair (ins-pair src pc))
+  (setf ins (car pair))
+  (setf val (cdr pair))
+  (if (string= ins "jmp")
+	(list ins 0 (+ pc val))
+	(list ins val pc)))
+
+(defun exec-src (fd)
+  (setq exe nil)
+  (setq src (import-src fd))
+  (setf acc 0)
+  (setf n 0)
+  (setf m 0)
+  (loop for v = (exec-ins src n) 
+		while (not (find n exe)) do
+	(push n exe)
+	(setf m n)
+	(setf n (nth 2 v))
+	(if (string= (nth 0 v) "acc")
+	  (setf acc (+ acc (nth 1 v))))
+	(if (= n m)
+	  (setf n (+ n 1))))
+  acc)
+
+(format t "solution 1: ~a~%" (exec-src "inf.txt"))
