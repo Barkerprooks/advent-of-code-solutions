@@ -1,12 +1,13 @@
 # Advent of Code Solutions
-Each day will be in a different language
+Each Day will be in a different language
 ## Days Complete
 ```
-[x] day 1 - Haskell
-[x] day 2 - Python
-[X] day 3 - C
-[X] day 4 - Rust
-[X] day 5 - Ruby
-[X] day 6 - C++
-[X] day 7 - Julia
+[x] Day 1 - Haskell
+[x] Day 2 - Python
+[X] Day 3 - C
+[X] Day 4 - Rust
+[X] Day 5 - Ruby
+[X] Day 6 - C++
+[X] Day 7 - Julia
+[X] Day 8 - Common Lisp
 ```
