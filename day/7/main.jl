@@ -47,7 +47,7 @@ end
 
 bags = Dict()
 
-open("test.txt", "r") do fd
+open("input.txt", "r") do fd
 	while ! eof(fd)
 		line = readline(fd)
 		pair = split(line, "contain")
