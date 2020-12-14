@@ -1,12 +1,10 @@
 (defun input-src (fd)
-  "Converts a src file to a list of strings"
   (with-open-file (h fd)
 	(loop for line = (read-line h nil)
 		  while line
 		  collect line)))
 
 (defun parse-ins (pc src)
-  "Converts an instruction string into a cons pair"
   (let ((i (nth pc src)))
 	(setf sp (position #\Space i))
 	(if sp
@@ -14,7 +12,6 @@
 	  nil)))
 
 (defun parse-src (fd)
-  "Converts a src file to list of cons"
   (let ((src (input-src fd)))
 	(loop for pc from 0 to (length src)
 		  for ins = (parse-ins pc src)
