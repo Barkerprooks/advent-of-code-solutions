@@ -1,6 +1,6 @@
 <?php
 
-function load_cipher_chunks($filename) {
+function load_cipher($filename) {
 	
 	$fd = fopen($filename, "r");
 	$bytes = array();
@@ -10,34 +10,75 @@ function load_cipher_chunks($filename) {
 			$bytes[] = intval($line);
 
 	fclose($fd);
-	return array_chunk($bytes, 25);
+	return $bytes;
 }
 
-function validate_chunk($preamble, $chunk) {
+function validate_byte($bytes, $offset) {
 
-	$used = array();
+	$byte = $bytes[$offset];
+	$pre = array();
 	
-	foreach($chunk as $byte) {
-		$used[$byte] = array();
-		foreach($preamble as $p1) {
-			foreach($preamble as $p2) {
-				if($p1 + $p2 == $byte)
-					$used[$byte][] = $p1." + ".$p2;
-			}
+	if($offset < 25) {
+		for($i = 0; $i < 25; $i++)
+			$pre[] = $bytes[$i];
+	} else {
+		for($i = $offset; $i >= ($offset - 25); $i--)
+			$pre[] = $bytes[$i];
+	}
+
+	foreach($pre as $n1) {
+		foreach($pre as $n2) {
+			if($n1 + $n2 == $byte)
+				return true;
 		}
 	}
 
-	return $used;
+	return false;
 }
 
-$chunks = load_cipher_chunks("input.txt");
-$used = validate_chunk($chunks[0], $chunks[1]);
+function exploit_cipher($bytes, $invalid_byte) {
+	
+	$nums = array();
+	$init = 0;
 
-foreach($used as $list) {
-	foreach($list as $sum)
-		echo $sum."\n";
-	echo "\n";
+	while($init <= count($bytes)) {
+		for($i = $init; $i < count($bytes); $i++) {
+			$nums[] = $bytes[$i];
+			$sum = array_sum($nums);
+			if($sum == $invalid_byte) {
+				return $nums;
+			} elseif ($sum > $invalid_byte)
+				break;
+		}
+		$nums = array();
+		$init++;
+	}
+
+	return null;
 }
 
+$bytes = load_cipher("input.txt");
+$invalid_byte = 0;
+
+for($i = 25; $i < count($bytes); $i++) {
+	if(!validate_byte($bytes, $i)) {
+		$invalid_byte = $bytes[$i];
+		break;
+	}
+}
+
+$nums = exploit_cipher($bytes, $invalid_byte);
+$lo = PHP_INT_MAX;
+$hi = 0;
+
+foreach($nums as $num) {
+	if($num > $hi)
+		$hi = $num;
+	elseif($num < $lo)
+		$lo = $num;
+}
+
+echo "solution 1: ".$invalid_byte."\n";
+echo "solution 2: ".($lo + $hi)."\n";
 
 ?>
