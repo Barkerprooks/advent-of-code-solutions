@@ -10,4 +10,12 @@ Each Day will be in a different language
 [X] Day 6 - C++
 [X] Day 7 - Julia
 [X] Day 8 - Common Lisp
+[ ] Day 9 - PHP
+[ ] Day 10 - Scala
+[ ] Day 11 - D
+[ ] Day 12 - Clojure
+[ ] Day 13 - C#
+[ ] Day 14 - Perl
+[ ] Day 15 - JavaScript
+[ ] Day 16 - Go
 ```

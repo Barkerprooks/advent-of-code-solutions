@@ -61,9 +61,10 @@
 	(loop for pc in steps do
 		  (fix-ins pc src)
 		  (if (= (nth 1 (run-src src)) 2)
-			(format t "change instruction ~d to fix loop~%" (+ pc 1))))))
+			(return (+ pc 1))
+			(fix-ins pc src)))))
 
 (format t "solution 1 ~d~%" (nth 0 (run-src (parse-src "inf.txt"))))
-(fix-src "inf.txt")
+(format t "flip instruction ~d to fix loop~%" (fix-src "inf.txt"))
 (format t "solution 2 ~d~%" (nth 0 (run-src (parse-src "fix.txt"))))
 
