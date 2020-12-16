@@ -2,22 +2,27 @@
 Each Day will be in a different language
 ## Days Complete
 ```
-I'm a bit behind at the moment
-
-[x] Day 1 - Haskell
-[x] Day 2 - Python
-[X] Day 3 - C
-[X] Day 4 - Rust
-[X] Day 5 - Ruby
-[X] Day 6 - C++
-[X] Day 7 - Julia
-[X] Day 8 - Common Lisp
-[X] Day 9 - PHP
-[ ] Day 10 - Scala
-[ ] Day 11 - D
-[ ] Day 12 - Clojure
-[ ] Day 13 - C#
-[ ] Day 14 - Perl
-[ ] Day 15 - JavaScript
-[ ] Day 16 - Go
+=========================================================-
+</>   Day   |   Language   | How to compile & run (Linux) |
+==========================================================|
+[x] Day 1   : Haskell      : ghc --make main.hs && ./main |
+----------------------------------------------------------|
+[x] Day 2   : Python       : python3 main.py              |
+----------------------------------------------------------|
+[X] Day 3   : C            : gcc main.c && ./a.out        |
+----------------------------------------------------------|
+[X] Day 4   : Rust         : rustc main.rs && ./main      |
+----------------------------------------------------------|
+[X] Day 5   : Ruby         : ruby main.rb                 |
+----------------------------------------------------------|
+[X] Day 6   : C++          : g++ main.cpp && ./a.out      |
+----------------------------------------------------------|
+[X] Day 7   : Julia        : julia main.jl                |
+----------------------------------------------------------|
+[X] Day 8   : Common Lisp  : clisp main.cl                |
+----------------------------------------------------------|
+[X] Day 9   : PHP          : php main.php                 |
+----------------------------------------------------------|
+[ ] Day 10  : C#           : cd src && dotnet run         |
+==========================================================
 ```
