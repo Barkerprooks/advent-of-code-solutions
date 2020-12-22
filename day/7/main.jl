@@ -27,9 +27,7 @@ function search_for_gold(bags)
 end
 
 function get_ncnt(key, bags)
-	
 	total = 0
-
 	for bag in bags[key]
 		if occursin("other", bag)
 			return 0
@@ -40,9 +38,7 @@ function get_ncnt(key, bags)
 			total += n * get_ncnt(b, bags)
 		end
 	end
-	
 	total
-
 end
 
 bags = Dict()
